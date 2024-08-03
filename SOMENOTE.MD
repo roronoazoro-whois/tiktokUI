@@ -1,0 +1,11 @@
+# customize-cra: một thư viện giúp tùy chỉnh lại cấu hình create-react-app
+
+# babel-plugin-module-resolver: một thư viện giúp dòng code import gọn gàng hơn
+
+# Cài đặt và cấu hình Prettier: Format Code
+
+Cài vào dự án để sau này các thành viên Commit lên Git thì sẽ cùng một format
+
+Sau khi cài đặt Extension:
+- .prettierrc -> cấu hình những quy tắc mà mình muốn Code sẽ được Format theo những quy tắc đó
+- .vscode/settings.json
