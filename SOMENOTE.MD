@@ -9,3 +9,7 @@ Cài vào dự án để sau này các thành viên Commit lên Git thì sẽ c�
 Sau khi cài đặt Extension:
 - .prettierrc -> cấu hình những quy tắc mà mình muốn Code sẽ được Format theo những quy tắc đó
 - .vscode/settings.json
+
+# Cài đặt thư viện SASS để viết SCSS
+npm i -D sass
+
