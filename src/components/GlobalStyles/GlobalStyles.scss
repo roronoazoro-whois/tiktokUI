@@ -1,3 +1,21 @@
-.dFlex {
-    display: flex;
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --primary: #fe2c55;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    text-rendering: optimizeSpeed;
+
+    font-size: 1.6rem;
+    line-height: 1.5;
 }

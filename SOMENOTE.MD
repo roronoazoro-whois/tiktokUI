@@ -11,5 +11,9 @@ Sau khi cài đặt Extension:
 - .vscode/settings.json
 
 # Cài đặt thư viện SASS để viết SCSS
+
 npm i -D sass
 
+# Reset CSS
+
+npm install --save normalize.css
