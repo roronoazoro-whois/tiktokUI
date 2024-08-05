@@ -23,3 +23,5 @@ npm install --save normalize.css
 npm i react-router-dom
 
 # npm i clsx
+
+# npm i @tippyjs/react
