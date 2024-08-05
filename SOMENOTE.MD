@@ -21,3 +21,5 @@ npm install --save normalize.css
 # React Router DOM
 
 npm i react-router-dom
+
+# npm i clsx
