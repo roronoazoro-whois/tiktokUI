@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faMagnifyingGlass, faSignIn, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 import style from './Header.module.scss';
 import Tippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '../../../Popper';
 import AccountItem from '../../../AccountItem';
+import Button from '../../../Button';
 
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
@@ -53,7 +54,10 @@ function Header() {
                         </button>
                     </div>
                 </Tippy>
-                <div className={clsx(style.actions)}></div>
+                <div className={clsx(style.actions)}>
+                    <Button text>Upload</Button>
+                    <Button rounded leftIcon={<FontAwesomeIcon icon={faSignIn} />} rightIcon={<FontAwesomeIcon icon={faSignIn} />}>Log in</Button>
+                </div>
             </div>
         </header>
     );
