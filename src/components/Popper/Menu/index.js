@@ -3,10 +3,33 @@ import style from './Menu.module.scss';
 import clsx from 'clsx';
 import { Wrapper as PopperWrapper } from '../index';
 import MenuItem from './MenuItem';
+import Header from './Header';
+import { useState } from 'react';
 
-function Menu({ children, items = [] }) {
+const defaultFunction = () => {};
+
+function Menu({ children, items = [], onChange = defaultFunction }) {
+    const [history, setHistory] = useState([{ data: items }]);
+    const current = history[history.length - 1];
+
     const renderItems = () => {
-        return items.map((item, index) => <MenuItem key={index} data={item} />);
+        return current.data.map((item, index) => {
+            const isParent = !!item.children;
+
+            return (
+                <MenuItem
+                    key={index}
+                    data={item}
+                    onClick={() => {
+                        if (isParent) {
+                            setHistory((prev) => [...prev, item.children]);
+                        } else {
+                            onChange(item);
+                        }
+                    }}
+                />
+            );
+        });
     };
 
     return (
@@ -16,7 +39,17 @@ function Menu({ children, items = [] }) {
             placement="bottom-end"
             render={(attrs) => (
                 <div className={clsx(style.menuList)} tabIndex="-1" {...attrs}>
-                    <PopperWrapper className={clsx(style.menuPopper)}>{renderItems()}</PopperWrapper>
+                    <PopperWrapper className={clsx(style.menuPopper)}>
+                        {history.length > 1 && (
+                            <Header
+                                title="Language"
+                                onBack={() => {
+                                    setHistory((prev) => prev.slice(0, prev.length - 1));
+                                }}
+                            />
+                        )}
+                        {renderItems()}
+                    </PopperWrapper>
                 </div>
             )}
         >

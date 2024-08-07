@@ -6,4 +6,23 @@
     padding-bottom: 8px;
 }
 
+// Header
+.header {
+    position: relative;
+    height: 50px;
+    margin-top: -8px;
+}
 
+.backBtn {
+    width: 50px;
+    height: 100%;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.headerTitle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
