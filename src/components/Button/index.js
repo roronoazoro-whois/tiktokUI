@@ -51,7 +51,7 @@ function Button({
         [style.text]: text,
         [style.disabled]: disabled,
         [style.rounded]: rounded,
-        [style[className]]: className,
+        [className]: className,
     });
 
     return (

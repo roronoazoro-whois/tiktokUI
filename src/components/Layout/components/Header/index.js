@@ -4,19 +4,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
     faCircleXmark,
+    faCloudUpload,
+    faCoins,
     faEarthAsia,
     faEllipsisVertical,
+    faGear,
     faKeyboard,
     faMagnifyingGlass,
+    faMessage,
+    faSignOut,
     faSpinner,
+    faUser,
 } from '@fortawesome/free-solid-svg-icons';
 
 import style from './Header.module.scss';
 import Tippy from '@tippyjs/react/headless';
+import TippyNormal from '@tippyjs/react/';
 import { Wrapper as PopperWrapper } from '../../../Popper';
 import AccountItem from '../../../AccountItem';
 import Button from '../../../Button';
 import Menu from '../../../Popper/Menu';
+import 'tippy.js/dist/tippy.css';
 
 const MENU_ITEMS = [
     {
@@ -49,8 +57,34 @@ const MENU_ITEMS = [
     },
 ];
 
+const userMenu = [
+    {
+        icon: <FontAwesomeIcon icon={faUser} />,
+        title: 'View profile',
+        to: '/@hoaa',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faCoins} />,
+        title: 'Get coins',
+        to: '/coin',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faGear} />,
+        title: 'Settings',
+        to: '/settings',
+    },
+    ...MENU_ITEMS,
+    {
+        icon: <FontAwesomeIcon icon={faSignOut} />,
+        title: 'Log out',
+        to: '/logout',
+        separate: true,
+    },
+];
+
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
+    const currentUser = true;
 
     useEffect(() => {
         setTimeout(() => {
@@ -62,7 +96,7 @@ function Header() {
         switch (menuItem.type) {
             case 'language':
                 // Handle change language
-                console.log(menuItem)
+                console.log(menuItem);
                 break;
             default:
         }
@@ -104,14 +138,37 @@ function Header() {
                         </button>
                     </div>
                 </Tippy>
-                <div className={clsx(style.actions)}>
-                    <Button text>Upload</Button>
-                    <Button primary>Log in</Button>
 
-                    <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
-                        <button className={clsx(style.moreBtn)}>
-                            <FontAwesomeIcon icon={faEllipsisVertical} />
-                        </button>
+                <div className={clsx(style.actions)}>
+                    {currentUser ? (
+                        <>
+                            <TippyNormal content="Upload Video" placement="bottom">
+                                <button className={clsx(style.actionBtn)}>
+                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                </button>
+                            </TippyNormal>
+                            <button className={clsx(style.actionBtn)}>
+                                <FontAwesomeIcon icon={faMessage} />
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            <Button text>Upload</Button>
+                            <Button primary>Log in</Button>
+                        </>
+                    )}
+                    <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
+                        {currentUser ? (
+                            <img
+                                className={clsx(style.userAvatar)}
+                                src="https://sohanews.sohacdn.com/160588918557773824/2021/4/1/1536305893556010024509220382267462611211035n-16172499837441767381699.jpg"
+                                alt="Dao Le Phuong Hoa"
+                            />
+                        ) : (
+                            <button className={clsx(style.moreBtn)}>
+                                <FontAwesomeIcon icon={faEllipsisVertical} />
+                            </button>
+                        )}
                     </Menu>
                 </div>
             </div>
