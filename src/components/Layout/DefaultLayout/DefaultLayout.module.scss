@@ -6,16 +6,9 @@
 
 .container {
     width: var(--default-layout-width);
-
-    // height: 1000px;
-    // background-color: #333;
-
     display: flex;
 }
 
 .content {
     flex: 1;
-
-    // background-color: #ccc;
-    // height: 1000px;
 }

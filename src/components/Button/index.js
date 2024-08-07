@@ -56,9 +56,9 @@ function Button({
 
     return (
         <Comp className={classes} {...props}>
-            <span className={clsx(style.icon)}>{leftIcon}</span>
+            {leftIcon && <span className={clsx(style.icon)}>{leftIcon}</span>}
             <span className={clsx(style.title)}>{children}</span>
-            <span className={clsx(style.icon)}>{rightIcon}</span>
+            {rightIcon && <span className={clsx(style.icon)}>{rightIcon}</span>}
         </Comp>
     );
 }
