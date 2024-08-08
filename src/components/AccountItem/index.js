@@ -2,23 +2,21 @@ import clsx from 'clsx';
 import style from './AccountItem.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import Image from '../Image';
+import { Link } from 'react-router-dom';
 
-function AccountItem() {
+function AccountItem({ data }) {
     return (
-        <div className={clsx(style.wrapper)}>
-            <img
-                src="https://sohanews.sohacdn.com/160588918557773824/2021/4/1/1536305893556010024509220382267462611211035n-16172499837441767381699.jpg"
-                alt="Hoa"
-                className={clsx(style.avatar)}
-            />
+        <Link to={`/@${data.nickname}`} className={clsx(style.wrapper)}>
+            <Image src={data.avatar} alt={data.avatar} className={clsx(style.avatar)} />
             <div className={clsx(style.info)}>
                 <p className={clsx(style.name)}>
-                    <span>Đào Lê Phương Hoa</span>
-                    <FontAwesomeIcon icon={faCheckCircle} className={clsx(style.check)} />
+                    <span>{data.full_name}</span>
+                    {data.tick && <FontAwesomeIcon icon={faCheckCircle} className={clsx(style.check)} />}
                 </p>
-                <span className={clsx(style.username)}>daolephuonghoa</span>
+                <span className={clsx(style.username)}>{data.nickname}</span>
             </div>
-        </div>
+        </Link>
     );
 }
 

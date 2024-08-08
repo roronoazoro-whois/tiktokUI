@@ -1,31 +1,24 @@
-import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
-    faCircleXmark,
     faCoins,
     faEarthAsia,
     faEllipsisVertical,
     faGear,
     faKeyboard,
-    faMagnifyingGlass,
-    faMessage,
     faSignOut,
-    faSpinner,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
 
 import style from './Header.module.scss';
-import Tippy from '@tippyjs/react/headless';
 import TippyNormal from '@tippyjs/react/';
-import { Wrapper as PopperWrapper } from '../../../Popper';
-import AccountItem from '../../../AccountItem';
 import Button from '../../../Button';
 import Menu from '../../../Popper/Menu';
 import 'tippy.js/dist/tippy.css';
-import { UploadIcon } from '../../../Icons';
+import { InboxIcon, UploadIcon } from '../../../Icons';
 import Image from '../../../Image';
+import Search from '../../../Search';
 
 const MENU_ITEMS = [
     {
@@ -84,14 +77,7 @@ const userMenu = [
 ];
 
 function Header() {
-    const [searchResult, setSearchResult] = useState([]);
     const currentUser = true;
-
-    useEffect(() => {
-        setTimeout(() => {
-            setSearchResult([]);
-        }, 0);
-    }, []);
 
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
@@ -112,34 +98,8 @@ function Header() {
                         alt="Tiktok Logo"
                     ></img>
                 </div>
-                <Tippy
-                    interactive
-                    visible={searchResult.length > 0}
-                    render={(attrs) => (
-                        <div className={clsx(style.searchResult)} tabIndex="-1" {...attrs}>
-                            <PopperWrapper>
-                                <h4 className={style.searchTitle}>Account</h4>
-
-                                <AccountItem></AccountItem>
-                                <AccountItem></AccountItem>
-                                <AccountItem></AccountItem>
-                                <AccountItem></AccountItem>
-                            </PopperWrapper>
-                        </div>
-                    )}
-                >
-                    <div className={clsx(style.search)}>
-                        <input placeholder="Search accounts and videos" spellCheck={false} />
-                        <button className={clsx(style.clear)}>
-                            <FontAwesomeIcon icon={faCircleXmark} />
-                        </button>
-                        <FontAwesomeIcon className={clsx(style.loading)} icon={faSpinner} />
-                        <button className={clsx(style.searchBtn)}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
-                        </button>
-                    </div>
-                </Tippy>
-
+                {/* Search  */}
+                <Search />
                 <div className={clsx(style.actions)}>
                     {currentUser ? (
                         <>
@@ -149,7 +109,7 @@ function Header() {
                                 </button>
                             </TippyNormal>
                             <button className={clsx(style.actionBtn)}>
-                                <FontAwesomeIcon icon={faMessage} />
+                                <InboxIcon />
                             </button>
                         </>
                     ) : (
