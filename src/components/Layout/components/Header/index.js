@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
     faCircleXmark,
-    faCloudUpload,
     faCoins,
     faEarthAsia,
     faEllipsisVertical,
@@ -25,6 +24,8 @@ import AccountItem from '../../../AccountItem';
 import Button from '../../../Button';
 import Menu from '../../../Popper/Menu';
 import 'tippy.js/dist/tippy.css';
+import { UploadIcon } from '../../../Icons';
+import Image from '../../../Image';
 
 const MENU_ITEMS = [
     {
@@ -144,7 +145,7 @@ function Header() {
                         <>
                             <TippyNormal content="Upload Video" placement="bottom">
                                 <button className={clsx(style.actionBtn)}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon />
                                 </button>
                             </TippyNormal>
                             <button className={clsx(style.actionBtn)}>
@@ -159,10 +160,11 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={clsx(style.userAvatar)}
-                                src="https://sohanews.sohacdn.com/160588918557773824/2021/4/1/1536305893556010024509220382267462611211035n-16172499837441767381699.jpg"
+                                src="https://sohanews.sohacdn.com/0160588918557773824/2021/4/1/1536305893556010024509220382267462611211035n-16172499837441767381699.jpg"
                                 alt="Dao Le Phuong Hoa"
+                                fallback="https://ih1.redbubble.net/image.1046392292.3346/st,large,507x507-pad,600x600,f8f8f8.jpg"
                             />
                         ) : (
                             <button className={clsx(style.moreBtn)}>
