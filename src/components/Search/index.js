@@ -4,7 +4,7 @@ import AccountItem from '../AccountItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import style from './Search.module.scss';
-import * as searchServices from '../../apiServices/searchServices';
+import * as searchServices from '../../services/searchServices';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useRef, useState } from 'react';
 import { SearchIcon } from '../Icons';

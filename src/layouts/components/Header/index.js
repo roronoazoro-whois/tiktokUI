@@ -13,14 +13,14 @@ import {
 
 import style from './Header.module.scss';
 import TippyNormal from '@tippyjs/react/';
-import Button from '../../../Button';
-import Menu from '../../../Popper/Menu';
+import Button from '../../../components/Button';
+import Menu from '../../../components/Popper/Menu';
 import 'tippy.js/dist/tippy.css';
-import { InboxIcon, UploadIcon } from '../../../Icons';
-import Image from '../../../Image';
-import Search from '../../../Search';
+import { InboxIcon, UploadIcon } from '../../../components/Icons';
+import Image from '../../../components/Image';
+import Search from '../../../components/Search';
 import { Link } from 'react-router-dom';
-import routes from '../../../../config/routes';
+import config from '../../../config';
 
 const MENU_ITEMS = [
     {
@@ -339,7 +339,7 @@ function Header() {
     return (
         <header className={clsx(style.wrapper)}>
             <div className={clsx(style.inner)}>
-                <Link to={routes.home} className={clsx(style.logo)}>
+                <Link to={config.routes.home} className={clsx(style.logo)}>
                     <img
                         src="https://raw.githubusercontent.com/sondnpt00343/tiktok-ui/53635fef3aad1ef411eb74238ee7560bf4fcc49d/src/assets/images/logo.svg"
                         alt="Tiktok Logo"
