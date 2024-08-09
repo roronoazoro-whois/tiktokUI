@@ -29,3 +29,7 @@ npm i react-router-dom
 # useDebounce
 
 # Axios
+
+# PropTypes
+
+Validate kiểu dữ liệu cho props trong components

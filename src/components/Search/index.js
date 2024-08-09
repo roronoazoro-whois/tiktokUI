@@ -14,7 +14,7 @@ function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(true);
-    const [loadng, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
     const inputRef = useRef();
 
     const debounced = useDebounce(searchValue, 500);
@@ -81,12 +81,12 @@ function Search() {
                         onChange={handleChange}
                         onFocus={() => setShowResult(true)}
                     />
-                    {!!searchValue && !loadng && (
+                    {!!searchValue && !loading && (
                         <button className={clsx(style.clear)} onClick={handleClear}>
                             <FontAwesomeIcon icon={faCircleXmark} />
                         </button>
                     )}
-                    {loadng && <FontAwesomeIcon className={clsx(style.loading)} icon={faSpinner} />}
+                    {loading && <FontAwesomeIcon className={clsx(style.loading)} icon={faSpinner} />}
                     <button className={clsx(style.searchBtn)} onMouseDown={(e) => e.preventDefault()}>
                         <SearchIcon />
                     </button>

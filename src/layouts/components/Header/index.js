@@ -345,7 +345,6 @@ function Header() {
                         alt="Tiktok Logo"
                     ></img>
                 </Link>
-                {/* Search  */}
                 <Search />
                 <div className={clsx(style.actions)}>
                     {currentUser ? (
