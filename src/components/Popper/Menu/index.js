@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 const defaultFunction = () => {};
 
-function Menu({ children, items = [], onChange = defaultFunction }) {
+function Menu({ children, items = [], onChange = defaultFunction, hideOnClick = false }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -38,6 +38,7 @@ function Menu({ children, items = [], onChange = defaultFunction }) {
             delay={[0, 700]}
             offset={[12, 8]}
             placement="bottom-end"
+            hideOnClick={hideOnClick}
             render={(attrs) => (
                 <div className={clsx(style.menuList)} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={clsx(style.menuPopper)}>
@@ -49,7 +50,7 @@ function Menu({ children, items = [], onChange = defaultFunction }) {
                                 }}
                             />
                         )}
-                        {renderItems()}
+                        <div className={clsx(style.menuBody)}>{renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}
