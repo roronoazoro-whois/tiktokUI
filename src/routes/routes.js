@@ -5,30 +5,35 @@ import Following from '../pages/Following';
 import Upload from '../pages/Upload';
 import Search from '../pages/Search';
 import Profile from '../pages/Profile';
-import routes from '../config';
+import Live from '../pages/Live';
+import config from '../config';
 
 const publicRoutes = [
     {
-        path: routes.routes.home,
+        path: config.routes.home,
         component: Home,
     },
     {
-        path: routes.routes.following,
+        path: config.routes.following,
         component: Following,
     },
     {
-        path: routes.routes.upload,
+        path: config.routes.upload,
         component: Upload,
         layout: HeaderOnly,
     },
     {
-        path: routes.routes.search,
+        path: config.routes.search,
         component: Search,
         layout: null,
     },
     {
-        path: routes.routes.profile,
+        path: config.routes.profile,
         component: Profile,
+    },
+    {
+        path: config.routes.live,
+        component: Live,
     },
 ];
 
